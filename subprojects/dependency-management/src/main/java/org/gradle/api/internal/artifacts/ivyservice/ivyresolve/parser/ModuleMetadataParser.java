@@ -54,7 +54,7 @@ import static com.google.gson.stream.JsonToken.END_OBJECT;
 import static org.apache.commons.lang.StringUtils.capitalize;
 
 public class ModuleMetadataParser {
-    public static final String FORMAT_VERSION = "0.4";
+    public static final String FORMAT_VERSION = "1.0";
     private final ImmutableAttributesFactory attributesFactory;
     private final NamedObjectInstantiator instantiator;
     private final ExcludeRuleConverter excludeRuleConverter;
