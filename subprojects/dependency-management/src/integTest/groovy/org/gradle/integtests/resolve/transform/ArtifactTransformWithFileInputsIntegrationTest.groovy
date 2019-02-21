@@ -32,13 +32,12 @@ class ArtifactTransformWithFileInputsIntegrationTest extends AbstractDependencyR
             """)
         }
         buildFile << """
-            @AssociatedTransformAction(MakeGreenAction)
             interface MakeGreen {
                 $inputAnnotations
                 ConfigurableFileCollection getSomeFiles()
             }
             
-            abstract class MakeGreenAction implements TransformAction {
+            abstract class MakeGreenAction implements TransformAction<MakeGreen> {
                 @TransformParameters
                 abstract MakeGreen getParameters()
                 @InputArtifact
@@ -152,7 +151,7 @@ class ArtifactTransformWithFileInputsIntegrationTest extends AbstractDependencyR
             """
         setupBuildWithTransformFileInputs()
         buildFile << """
-            abstract class MakeRedAction implements TransformAction {
+            abstract class MakeRedAction implements TransformAction<Void> {
                 @InputArtifact
                 abstract File getInput()
                 
